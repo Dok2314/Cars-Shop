@@ -6,24 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    const TABLE_NAME = 'reviews';
+    const TABLE_NAME = 'role_permission';
 
     public function up()
     {
         if(!Schema::hasTable(self::TABLE_NAME)) {
-            Schema::create(self::TABLE_NAME, function (Blueprint $table){
+            Schema::create(self::TABLE_NAME, function (Blueprint $table) {
                 $table->id();
-                $table->string('title');
-                $table->foreignId('good_id')
-                    ->constrained('goods')
+                $table->foreignId('role_id')
+                    ->constrained('roles')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
-                $table->foreignId('user_id')
-                    ->constrained('users')
+                $table->foreignId('permission_id')
+                    ->constrained('permissions')
                     ->cascadeOnUpdate()
                     ->cascadeOnDelete();
-                $table->unsignedInteger('rating');
-                $table->text('review');
                 $table->softDeletes();
                 $table->timestamps();
             });

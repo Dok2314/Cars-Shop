@@ -16,11 +16,11 @@ return new class extends Migration
                $table->string('title');
                $table->string('slug');
                $table->foreignId('category_id')
-                   ->constrained()
+                   ->constrained('categories')
                    ->cascadeOnUpdate()
                    ->cascadeOnDelete();
-               $table->string('preview_image');
-               $table->string('gallery');
+               $table->string('preview_image')->nullable();
+               $table->string('gallery')->nullable();
                $table->text('description');
                $table->unsignedInteger('old_price');
                $table->unsignedInteger('new_price');
