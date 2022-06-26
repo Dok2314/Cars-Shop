@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/goods.css') }}">
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 @include('sessions.success')

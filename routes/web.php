@@ -15,9 +15,8 @@ use App\Http\Controllers AS C;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [C\HomeController::class, 'homePage'])
+    ->name('home');
 
 Route::group(['prefix' => 'authorize', 'middleware' => 'guest', 'as' => 'user.'], function(){
     Route::get('/registration', [AuthController\RegistrationController::class, 'registrationView'])
