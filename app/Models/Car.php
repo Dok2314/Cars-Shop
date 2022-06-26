@@ -6,16 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Car extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'categories';
+    protected $table = 'cars';
 
     protected $guarded = false;
 
-    public function cars()
+    protected $casts = [
+        'gallery' => 'array'
+    ];
+
+    public function category()
     {
-        return $this->hasMany(Car::class, 'category_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }

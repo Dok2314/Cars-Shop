@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Car;
 use App\Models\Category;
 use App\Models\Good;
 use Illuminate\Database\Seeder;
@@ -17,6 +18,6 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         Category::factory(50)->create();
-        Good::factory(500)->create();
+        Car::factory(500)->create();
     }
 }

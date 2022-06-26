@@ -6,7 +6,7 @@ use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class GoodFactory extends Factory
+class CarFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -20,10 +20,12 @@ class GoodFactory extends Factory
         return [
             'title'       => $title,
             'slug'        => Str::slug($title),
+            'mark'        => $this->faker->word,
             'category_id' => Category::get()->random()->id,
-            'description' => $this->faker->sentence(20),
-            'old_price'   => rand(10000, 15000),
-            'new_price'   => rand(5000, 8000)
+            'small_description' => $this->faker->sentence(50),
+            'description' => $this->faker->sentence(50),
+            'old_price'   => rand(100000, 120000),
+            'new_price'   => rand(75000, 89000)
         ];
     }
 }

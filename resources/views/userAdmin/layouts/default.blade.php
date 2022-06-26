@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('css/cars.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/car.css') }}">
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 @include('sessions.success')
@@ -25,20 +25,20 @@
 <div class="wrapper">
     <nav class="main-header navbar navbar-expand navbar-dark">
         <ul class="navbar-nav">
-            @include('main.includes.left_header')
+            @include('userAdmin.includes.left_header')
         </ul>
 
         <ul class="navbar-nav ml-auto">
-            @include('main.includes.right_header')
+            @include('userAdmin.includes.right_header')
         </ul>
     </nav>
 
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="{{ route('home') }}" class="brand-link">
-            <span class="brand-text font-weight-light">{{ auth()->user()->name ?? '' }} Cars Shop</span>
+        <a href="{{ route('user.admin') }}" class="brand-link">
+            <span class="brand-text font-weight-light">{{ auth()->user()->name ?? '' }} Админка</span>
         </a>
 
-        @include('main.includes.sidebar')
+        @include('userAdmin.includes.sidebar')
     </aside>
 
     <div class="content-wrapper">
@@ -50,25 +50,25 @@
                         <h1 class="m-0">@yield('header_name')</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
-{{--                        <ol class="breadcrumb float-sm-right">--}}
-{{--                            <li class="breadcrumb-item"><a href="#">Home</a></li>--}}
-{{--                            <li class="breadcrumb-item active">Dashboard v2</li>--}}
-{{--                        </ol>--}}
+                        {{--                        <ol class="breadcrumb float-sm-right">--}}
+                        {{--                            <li class="breadcrumb-item"><a href="#">Home</a></li>--}}
+                        {{--                            <li class="breadcrumb-item active">Dashboard v2</li>--}}
+                        {{--                        </ol>--}}
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
 
         <!-- Main content -->
-        @yield('main_content')
-        <!-- /.content -->
+    @yield('main_content')
+    <!-- /.content -->
     </div>
 
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
     </aside>
 
-    @include('main.includes.footer')
+    @include('userAdmin.includes.footer')
 </div>
 
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
