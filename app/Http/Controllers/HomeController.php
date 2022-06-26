@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Good;
+use App\Models\Car;
 
 class HomeController extends Controller
 {
     public function homePage()
     {
-        $goods = Good::orderBy('created_at', 'desc')
+        $cars = Car::orderBy('created_at', 'desc')
             ->paginate(12);
 
-        $goodCount = Good::all()->count();
+        $carCount = Car::all()->count();
 
-        return view('home', compact('goods', 'goodCount'));
+        return view('home', compact('cars', 'carCount'));
     }
 }

@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/cars.css') }}">
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+
 @include('sessions.success')
 
 @include('sessions.danger')
@@ -25,11 +26,11 @@
 <div class="wrapper">
     <nav class="main-header navbar navbar-expand navbar-dark">
         <ul class="navbar-nav">
-            @include('main.includes.left_header')
+            @include('CRUD.includes.left_header')
         </ul>
 
         <ul class="navbar-nav ml-auto">
-            @include('main.includes.right_header')
+            @include('CRUD.includes.right_header')
         </ul>
     </nav>
 
@@ -38,7 +39,7 @@
             <span class="brand-text font-weight-light">{{ auth()->user()->name ?? '' }} Cars Shop</span>
         </a>
 
-        @include('main.includes.sidebar')
+        @include('CRUD.includes.sidebar')
     </aside>
 
     <div class="content-wrapper">
@@ -50,25 +51,25 @@
                         <h1 class="m-0">@yield('header_name')</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
-{{--                        <ol class="breadcrumb float-sm-right">--}}
-{{--                            <li class="breadcrumb-item"><a href="#">Home</a></li>--}}
-{{--                            <li class="breadcrumb-item active">Dashboard v2</li>--}}
-{{--                        </ol>--}}
+                        {{--                        <ol class="breadcrumb float-sm-right">--}}
+                        {{--                            <li class="breadcrumb-item"><a href="#">Home</a></li>--}}
+                        {{--                            <li class="breadcrumb-item active">Dashboard v2</li>--}}
+                        {{--                        </ol>--}}
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
 
         <!-- Main content -->
-        @yield('main_content')
-        <!-- /.content -->
+    @yield('main_content')
+    <!-- /.content -->
     </div>
 
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
     </aside>
 
-    @include('main.includes.footer')
+    @include('CRUD.includes.footer')
 </div>
 
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
@@ -86,5 +87,6 @@
 <script src="{{ asset('dist/js/pages/dashboard2.js') }}"></script>
 
 <script src="{{ asset('js/sidebar.js') }}"></script>
+@stack('scripts')
 </body>
 </html>

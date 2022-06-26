@@ -52,7 +52,7 @@ class RegistrationController extends Controller
             'phone' => $data['phone'],
             'role_id' => 3,
             'email' => $data['email'],
-            'password' => Hash::make($data['email'])
+            'password' => Hash::make($data['password'])
         ]);
     }
 

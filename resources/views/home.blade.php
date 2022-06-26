@@ -15,7 +15,7 @@
 
                         <div class="info-box-content">
                             <span class="info-box-text">Товаров</span>
-                            <span class="info-box-number">{{ $goodCount }}</span>
+                            <span class="info-box-number">{{ $carCount }}</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -27,19 +27,22 @@
             <!-- Main row -->
             <div class="row">
                 <ul class="goods-list">
-                    @foreach($goods as $good)
+                    @foreach($cars as $car)
                     <li class="goods-item" style="list-style: none">
                         <div class="goods-item-body ml-4">
                             <figure class="thumbnail">
-                                <a href="#">
-                                    <img src="{{ $good->preview_image }}" width="250" height="200">
+                                <a href="{{ route('car.preview', $car) }}">
+                                    <img src="{{ Storage::disk('images')->url($car->preview_image) }}" width="350" height="200">
                                 </a>
                             </figure>
-                            <h6 class="title"><a href="#">{{ $good->title }}</a></h6>
+                            <h6 class="title"><a href="{{ route('car.preview', $car) }}">{{ $car->title }}</a></h6>
                         </div>
                     </li>
                     @endforeach
                 </ul>
+            </div>
+            <div class="mb-5">
+                {{ $cars->links('vendor.pagination.bootstrap-4') }}
             </div>
             <!-- /.row -->
         </div><!--/. container-fluid -->
